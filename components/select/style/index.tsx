@@ -144,6 +144,8 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
 
       // ======================== Selection ========================
       [`${componentCls}-selection-item`]: {
+        display: 'flex',
+        alignItems: 'center',
         flex: 1,
         fontWeight: 'normal',
         ...textEllipsis,
