@@ -35,10 +35,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           },
         },
 
-        [`
-          ${componentCls}-selection-item,
-          ${componentCls}-selection-placeholder
-        `]: {
+        [`${componentCls}-selection-placeholder`]: {
           padding: 0,
           lineHeight: `${selectHeightWithoutBorder}px`,
           transition: `all ${token.motionDurationSlow}`,
