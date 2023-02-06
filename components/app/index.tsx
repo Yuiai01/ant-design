@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import useMessage from '../message/useMessage';
+import { useAppMessage } from '../message';
 import useNotification from '../notification/useNotification';
 import useModal from '../modal/useModal';
 import AppContext from './context';
@@ -14,18 +14,19 @@ export type AppProps = {
   className?: string;
   prefixCls?: string;
   children?: ReactNode;
+  independent?: boolean;
 };
 
 const useApp = () => React.useContext<useAppProps>(AppContext);
 
 const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
-  const { prefixCls: customizePrefixCls, children, className } = props;
+  const { prefixCls: customizePrefixCls, children, className, independent = false } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className);
 
-  const [messageApi, messageContextHolder] = useMessage();
+  const [messageApi, messageContextHolder] = useAppMessage(independent);
   const [notificationApi, notificationContextHolder] = useNotification();
   const [ModalApi, ModalContextHolder] = useModal();
 
