@@ -117,6 +117,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================= Cell =============================
       [`
           ${componentCls}-thead > tr > th,
+          ${componentCls}-tbody > tr > th,
           ${componentCls}-tbody > tr > td,
           tfoot > tr > th,
           tfoot > tr > td
@@ -171,7 +172,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================ Body ============================
       [`${componentCls}-tbody`]: {
         '> tr': {
-          '> td': {
+          [`> th, > td`]: {
             transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
             borderBottom: tableBorder,
 
@@ -195,19 +196,25 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             },
           },
 
+          '> th': {
+            textAlign: 'start',
+          },
+
           [`
+            &${componentCls}-row:hover > th,
             &${componentCls}-row:hover > td,
+            > th${componentCls}-cell-row-hover
             > td${componentCls}-cell-row-hover
           `]: {
             background: tableRowHoverBg,
           },
 
           [`&${componentCls}-row-selected`]: {
-            '> td': {
+            [`> th, > td`]: {
               background: tableSelectedRowBg,
             },
 
-            '&:hover > td': {
+            [`&:hover > th, &:hover > td`]: {
               background: tableSelectedRowHoverBg,
             },
           },
