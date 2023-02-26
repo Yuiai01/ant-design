@@ -33,6 +33,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/linecap.tsx">Stroke Linecap</code>
 <code src="./demo/gradient-line.tsx">Custom line gradient</code>
 <code src="./demo/steps.tsx">Progress bar with steps</code>
+<code src="./demo/percent-debug.tsx" debug>Percent Debug</code>
 
 ## API
 

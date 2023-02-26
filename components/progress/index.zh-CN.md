@@ -34,6 +34,7 @@ demo:
 <code src="./demo/linecap.tsx">边缘形状</code>
 <code src="./demo/gradient-line.tsx">自定义进度条渐变色</code>
 <code src="./demo/steps.tsx">步骤进度条</code>
+<code src="./demo/percent-debug.tsx" debug>百分比调试</code>
 
 ## API
 
