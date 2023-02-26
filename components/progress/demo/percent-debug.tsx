@@ -8,6 +8,11 @@ const App = () => {
     <>
       <Progress percent={percent} />
       <br />
+      <Progress
+        type='circle'
+        percent={percent}
+        success={{ percent: percent - 10, strokeColor: '#ff00ff' }}
+      />
       <Progress type='circle' percent={percent} success={{ strokeColor: '#ff00ff' }} />
       <Progress type='circle' success={{ percent, strokeColor: '#ff00ff' }} />
       <br />
