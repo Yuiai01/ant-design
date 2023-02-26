@@ -79,7 +79,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
   }, [percent, props.success, props.successPercent]);
 
   const progressStatus = React.useMemo<typeof ProgressStatuses[number]>(() => {
-    if (status === 'success' || percentNumber >= 100) {
+    if (!ProgressStatuses.includes(status!) && percentNumber >= 100) {
       return 'success';
     }
     return status || 'normal';
